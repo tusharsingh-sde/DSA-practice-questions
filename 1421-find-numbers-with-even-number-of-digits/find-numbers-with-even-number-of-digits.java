@@ -1,23 +1,37 @@
+// class Solution {
+//     public int findNumbers(int[] nums) {
+        
+//         int temp = 0;
+//         for (int i=0; i<nums.length;i++){
+//             int count = 0;
+            
+//             int n = nums[i];
+
+//             while (n>0){
+//                 n = n/10;
+//                 count++;
+//             }
+
+//             if (count%2==0){
+//                 temp++;
+//             }
+//         }
+//         return temp;
+//     }
+// }
+
 class Solution {
     public int findNumbers(int[] nums) {
-        
-        int temp = 0;
-        for (int i=0; i<nums.length;i++){
-            int count = 0;
-            
-            int n = nums[i];
-
-            while (n>0){
-                n = n/10;
-                count++;
-            }
-
-            if (count%2==0){
-                temp++;
+        int ans =0;
+        for (int val: nums){
+            String str = String.valueOf(val);
+            if(str.length()%2==0){
+                ans++;
             }
         }
-        return temp;
+        return ans;
     }
+
 }
 
 // Synced seamlessly with LeetHub Pro
