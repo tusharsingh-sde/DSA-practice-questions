@@ -1,20 +1,44 @@
-class Solution {
-    public int[] sortedSquares(int[] A) {
-        int n = A.length;
-        int[] result = new int[n];
-        int i = 0, j = n - 1;
-        for (int p = n - 1; p >= 0; p--) {
-            if (Math.abs(A[i]) > Math.abs(A[j])) {
-                result[p] = A[i] * A[i];
-                i++;
+class Solution{
+    public int[] sortedSquares(int[] nums) {
+        int n=nums.length;
+        int [] temp=new int[n];
+        int low=0;
+        int high=n-1;
+        while(low<=high){
+            int leftV=nums[low]*nums[low];
+            int rightV=nums[high]*nums[high];
+            if(leftV>rightV){
+                temp[n-1]=leftV;
+                low++;
+                n--;
             } else {
-                result[p] = A[j] * A[j];
-                j--;
+                temp[n-1]=rightV;
+                n--;
+                high--;
             }
         }
-        return result;
+        return temp;
     }
 }
+
+
+// class Solution {
+//     public int[] sortedSquares(int[] nums) {
+//         int n = nums.length;
+//         int[] ans = new int[n];
+//         int i = 0, j = n - 1;
+//         for (int p = n - 1; p >= 0; p--) {
+//             if (Math.abs(nums[i]) > Math.abs(nums[j])) {
+//                 ans[p] = nums[i] * nums[i];
+//                 i++;
+//             } else {
+//                 ans[p] = nums[j] * nums[j];
+//                 j--;
+//             }
+//         }
+//         return ans;
+//     }
+// }
 
 
 // class Solution {
