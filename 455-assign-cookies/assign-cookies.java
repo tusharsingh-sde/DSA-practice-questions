@@ -1,0 +1,25 @@
+class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+        if(s.length==0 || g.length==0){
+            return 0;
+        }
+
+        Arrays.sort(s);
+        Arrays.sort(g);
+        int i=0;
+        int j=0;
+        int count=0;
+        while(i<g.length && j<s.length){
+            if(s[j]>=g[i]){
+                i++;
+                count++;
+            }
+            j++;
+        }
+        return count;
+    }
+}
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
